@@ -37,6 +37,9 @@ export default class VendController {
     //calls the draw products at the start of the application
     drawProducts()
   }
+
+
+
   addQuarter() {
     console.log(1)
     //adds quarter to vending machine and returns the total
@@ -47,7 +50,16 @@ export default class VendController {
   }
   vendItem(productIndex) {
     //attempts to process the vend item
-    let item = vendService.vendItem(productIndex)
+    let product = vendService.vendItem(productIndex)
     //you will want to check that item exists and then draw it to the screen
+    if (product) {
+      document.getElementById('snacks').innerHTML = `<img src="${product.image}"s/>`
+    }
   }
+  
+  return() {
+    drawTotal(0)
+  }
+
+
 }
